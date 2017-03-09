@@ -1,0 +1,239 @@
+body {
+    padding: 300px;
+}
+
+li {
+    list-style: none;
+}
+
+canvas {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #000;
+    width: 300px;
+    height: 300px;
+    /*-webkit-transition: width 1s linear, height 1s linear, left 1s linear, top 1s linear;*/
+    /*-moz-transition: width 1s linear, height 1s linear, left 1s linear, top 1s linear;*/
+    /*-ms-transition: width 1s linear, height 1s linear, left 1s linear, top 1s linear;*/
+    /*-o-transition: width 1s linear, height 1s linear, left 1s linear, top 1s linear;*/
+    /*transition: width 1s linear, height 1s linear, left 1s linear, top 1s linear;*/
+}
+
+#personOne {
+    left: 300px;
+    top: 0;
+}
+
+@-webkit-keyframes moveOne {
+    0% {
+        width: 300px;
+        height: 300px;
+        left: 300px;
+        top: 0;
+    }
+    12.5% {
+        width: 450px;
+        height: 300px;
+        left: 300px;
+        top: 0;
+    }
+    25% {
+        width: 300px;
+        height: 300px;
+        top: 0;
+        left: 450px;
+    }
+    37.5% {
+        height: 450px;
+        width: 300px;
+        top: 0;
+        left: 450px;
+    }
+    50% {
+        height: 300px;
+        width: 300px;
+        top: 150px;
+        left: 450px;
+    }
+    62.5% {
+        width: 450px;
+        height: 300px;
+        top: 150px;
+        left: 450px;
+    }
+    75% {
+        height: 300px;
+        width: 300px;
+        top: 150px;
+        left: 600px;
+    }
+    87.5% {
+        width: 300px;
+        height: 450px;
+        top: 150px;
+        left: 600px;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        top: 300px;
+        left: 600px;
+    }
+}
+
+#personOne.move {
+    -webkit-animation: moveOne 5s linear;
+    -o-animation: moveOne 5s linear;
+    animation: moveOne 5s linear;
+    top: 300px;
+    left: 600px;
+}
+
+#personTwo {
+    left: 600px;
+    top: 0;
+    display: none;
+}
+
+@-webkit-keyframes moveTwo {
+    0% {
+        width: 300px;
+        height: 300px;
+        top: 0;
+        left: 600px;
+    }
+    10% {
+        width: 450px;
+        height: 300px;
+        top: 0;
+        left: 600px;
+    }
+    20% {
+        width: 300px;
+        height: 300px;
+        top: 0;
+        left: 750px;
+    }
+    30% {
+        width: 450px;
+        height: 300px;
+        top: 0;
+        left: 750px;
+    }
+    40% {
+        width: 300px;
+        height: 300px;
+        top: 0;
+        left: 900px;
+    }
+    50% {
+        width: 300px;
+        height: 450px;
+        top: 0;
+        left: 900px;
+    }
+    60% {
+        width: 300px;
+        height: 300px;
+        top: 150px;
+        left: 900px;
+    }
+    70% {
+        width: 450px;
+        height: 300px;
+        top: 150px;
+        left: 900px;
+    }
+    80% {
+        height: 300px;
+        width: 300px;
+        top: 150px;
+        left: 1050px;
+    }
+    90% {
+        width: 300px;
+        height: 450px;
+        top: 150px;
+        left: 1050px;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        top: 300px;
+        left: 1050px;
+    }
+}
+
+#personTwo.move {
+    -webkit-animation: moveTwo 5s linear;
+    -o-animation: moveTwo 5s linear;
+    animation: moveTwo 5s linear;
+    top: 300px;
+    left: 1050px;
+
+}
+
+.tip {
+    height: 50px;
+    line-height: 25px;
+    text-align: center;
+    /*background-color: pink;*/
+    position: absolute;
+    top: 300px;
+}
+
+#tip2 {
+    margin-left: 600px;
+    display: none;
+}
+
+/*
+
+#tip1 {
+    left: 600px;
+}
+*/
+
+#inputData {
+    text-align: center;
+    width: 300px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 500px;
+    display: none;
+}
+
+#yourData {
+    text-align: center;
+    position: absolute;
+    width: 300px;
+    left: 600px;
+    top: 600px;
+    /*background-color: red;*/
+}
+
+#bossData {
+    text-align: center;
+    position: absolute;
+    width: 300px;
+    left: 1050px;
+    top: 600px;
+    /*background-color: red;*/
+}
+
+#battle {
+    width: 50px;
+    position: absolute;
+    top: 450px;
+    left: 950px;
+    display: none;
+}
+
+#record {
+    position: absolute;
+    top: 670px;
+    left: 800px;
+    text-align: center;
+    display: none;
+}

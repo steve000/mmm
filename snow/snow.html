@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas width="700px" height="1000px" style="margin:0 auto;display: block"></canvas>
+<script>
+    var img = document.createElement("img");
+    img.src = "123.bmp";//图片加载需要一定时间.所以要提前加载
+    window.onload = function () {
+        var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
+        ctx.drawImage(img, 0, 0, 700, 1000);//由于图片较大.必须要在最后加载
+        ctx.font = "60px 隶书";
+        var snowArr = [];
+        setInterval(function () {   //生成雪花的函数
+            snowArr.push(new snow());
+        }, 300);
+        setInterval(function () {
+            ctx.clearRect(0, 0, 700, 1000);
+            ctx.drawImage(img, 0, 0, 700, 1000);
+            for (var i = 0; i < snowArr.length; i++) {
+                snowArr[i].snowShow();
+                snowArr[i].snowEvo();
+                ctx.fillStyle = 'red';
+                ctx.fillText("百年好合", 350, 70);
+                //雪花旋转的角度改变
+                snowArr[i].startAngle = (snowArr[i].startAngle + snowArr[i].rotateAngle) % (Math.PI * 2);
+                //x方向加速度的变向.
+                if (Math.random() < 0.5 && snowArr[i].temp) {
+                    snowArr[i].temp = false;
+                    snowArr[i].speedA = -snowArr[i].speedA;
+                    (function (i) {
+                        setTimeout(function () {
+                            snowArr[i] && (snowArr[i].temp = true);
+                        }, 3000)
+                    })(i);
+                }
+                //雪花新位置的定位公式.
+                snowArr[i].speedX += snowArr[i].speedA;
+                snowArr[i].startX += snowArr[i].speedX;
+                snowArr[i].startY += snowArr[i].speedY;
+                if (snowArr[i].startY >= 1000) {
+                    snowArr.splice(i, 1);
+                    i--;
+                }
+            }
+        }, 15);
+        function snow() {
+            this.radius = Math.random() * 10 + 8;
+            this.startX = Math.random() * 700;
+            this.startY = Math.random() * 1000;
+            this.speedX = Math.random();
+            this.speedY = Math.random() + .5;
+            this.speedA = 0.01;
+            this.temp = true;
+            this.num = Math.floor(Math.random() * 4) + 5;
+            this.startAngle = 0;
+            this.rotateAngle = 2 * Math.PI * (Math.random() * (1 / 133 - 1 / 333) + 1 / 333);
+            var temp = Math.random();
+            if (temp < 0.4) {
+                this.startX = 0
+            } else if (temp < 0.7) {
+                this.startX = 700;
+                this.speedX = -this.speedX;
+            } else {
+                this.startY = 0
+            }
+        }
+
+        snow.prototype = {
+            constructor: snow,
+            snowShow: function () {
+                ctx.beginPath();
+                ctx.moveTo(this.startX, this.startY);
+                ctx.arc(this.startX, this.startY, this.radius, 0, 2 * Math.PI, false);
+                var thisColor = ctx.createRadialGradient(this.startX, this.startY, 0, this.startX, this.startY, this.radius);
+                thisColor.addColorStop(0, 'rgba(255,255,255,1)');
+                thisColor.addColorStop(1, 'rgba(255,255,255,0)');
+                ctx.fillStyle = thisColor;
+                ctx.closePath();
+                ctx.fill();
+            },
+            snowEvo: function () {
+                ctx.save();
+                ctx.translate(this.startX, this.startY);
+                this.startAngle = this.speedX > 0 ? Math.abs(this.startAngle) : -Math.abs(this.startAngle);
+                this.rotateAngle = this.speedX > 0 ? Math.abs(this.rotateAngle) : -Math.abs(this.rotateAngle);
+                ctx.rotate(this.startAngle);
+                ctx.beginPath();
+                var length = this.radius - 2;
+                for (var i = 0; i < this.num; i++) {
+                    ctx.moveTo(0, 0);
+                    ctx.lineTo(0, length);
+                    ctx.moveTo(0, length * 3 / 4);
+                    ctx.lineTo(length / 6, length * 3 / 4);
+                    ctx.moveTo(0, length * 3 / 4);
+                    ctx.lineTo(-length / 6, length * 3 / 4);
+                    ctx.moveTo(0, length / 2);
+                    ctx.lineTo(length / 4, length / 2);
+                    ctx.moveTo(0, length / 2);
+                    ctx.lineTo(-length / 4, length / 2);
+                    ctx.moveTo(0, length / 4);
+                    ctx.lineTo(length / 3, length / 4);
+                    ctx.moveTo(0, length / 4);
+                    ctx.lineTo(-length / 3, length / 4);
+                    ctx.rotate(Math.PI * 2 / this.num);
+                }
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+    }
+</script>
+</body>
+</html>

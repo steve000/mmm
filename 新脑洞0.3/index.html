@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div id="tip1" class="tip">
+    请使用鼠标绘制你的人物
+    <br/>
+    <input type="button" value="完成"/>
+</div>
+<div>
+    <canvas width="300px" height="300px" id="personOne"></canvas>
+</div>
+<div id="tip2" class="tip">
+    请使用鼠标绘制一个boss
+    <br/>
+    <input type="button" value="完成"/>
+</div>
+<div>
+    <canvas width="300px" height="300px" id="personTwo"></canvas>
+</div>
+<div id="inputData">
+    <p>请输入你的Name:</p> <input type="text"/>
+    <br/>
+
+    <p>请输入你的HP:</p> <input type="text"/>
+    <br/>
+
+    <p>请输入你的att:</p> <input type="text"/>
+    <br/>
+    <input type="button" value="确定"/>
+</div>
+<div id="yourData">
+
+</div>
+<div id="bossData">
+
+</div>
+<div id="record"></div>
+<input type="button" id="battle" value="battle"/>
+<script src="javascript/index.js"></script>
+</body>
+</html>
