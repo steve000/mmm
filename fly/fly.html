@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<script src="js/jquery.1.js"></script>
+<script src="js/jquery.fly.min.js"></script>
+<body>
+<style>
+ .img_2{ position:fixed; bottom:20px; right:30px;} 
+ .fly{ font-size:140px;}
+ p{ font-size:40px;}
+ .con{ float:left;}
+</style>
+
+<div class="one con">
+     <img class="img_1 img" src="images/cw.jpg" />
+     <p>2</p>
+     <button>加入</button>
+</div>
+<div class="one1 con">
+     <img class="img_4 img" src="images/hs.jpg" />
+     <p>2</p>
+     <button>加入</button>
+</div>
+<div class="one2 con">
+     <img class="img_3 img" src="images/lg.jpg" />
+     <p>2</p>
+     <button>加入</button>
+</div>
+<img class="img_2 img" src="images/cw.jpg" />
+<script>
+$(function() {
+	var offset = $(".img_2").offset();
+	var offset2 = $("button").offset();
+	$("button").click(function(event){
+		var addcar = $(this);
+		var img = $(this).siblings('p').html()
+		
+		var flyer = $('<p class="fly">'+img+'</p>');
+		
+		flyer.fly({
+			start: {
+				left: event.pageX,
+				top: event.pageY-30
+			},
+			end: {
+				left: offset.left+10,
+				top: offset.top+10,
+				width: 0,
+				height: 0
+			},
+			
+		});
+	});
+  
+});
+</script>
+</body>
+</html>
