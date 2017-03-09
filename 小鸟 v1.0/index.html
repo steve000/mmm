@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script src="js/jquery-2.2.2.min.js"></script>
+    <script src="js/index.min.js"></script>
+
+</head>
+<body>
+
+<div class="mask">
+    <button class="start">开始游戏</button>
+    <button class="delete">删除进度</button>
+    <!--<p>胜败虽然是兵家常事,<br/>菜鸟就多练练再来吧</p>-->
+    <div class="hiScore"></div>
+<!--    <div class="attack-mode">
+        <span>攻击模式:</span>
+        <br/>
+        <input type="radio" name="infinite" checked id="infinite" value="1"/><label for="infinite">无限模式</label>
+        <br/>
+        <input type="radio" name="infinite" id="stage" value="2"/><label for="stage">关卡模式</label>
+    </div>-->
+</div>
+<div id="main">
+    <div class="score"></div>
+    <div class="life">
+        <!--<div class="bird"></div>-->
+    </div>
+    <div class="bossHp">
+        boss HP:
+        <meter value="100" max="100" min="0" low="20" high="80" optimum="100" id="bossHp"></meter>
+    </div>
+    <div id="bird" class="bird">
+        <div id="core"></div>
+        <!--<div class="egg egg0"></div>-->
+        <!--<div class="egg egg1"></div>-->
+    </div>
+    <div id="skill" class="skill"></div>
+    <div id="skillCold">
+        <div class="skill"></div>
+        <canvas width="50px" height="50px" id="coldTimer"></canvas>
+    </div>
+    <!--已经完成太多就不再用盒子包裹了-->
+    <!--<div class="bullet"></div>-->
+    <!--<div class="light_bullet"></div>-->
+
+    <div id="enemy">
+        <!--<div class="enemy1"></div>-->
+        <!--<div class="boom"></div>-->
+        <!--<div class="enemy2"></div>-->
+    </div>
+    <div id="boss">
+        <!--<div id="boss1" class="boss1"></div>-->
+    </div>
+    <div id="enemy-bullet">
+        <!--<div class="enemy-bullet"></div>-->
+        <!--暂时将两种敌人的子弹统一了.-->
+    </div>
+    <div id="boss-bullet">
+        <!--<div class="boss1-bullet"></div>-->
+        <!--<div class="boss1-track1"></div>-->
+        <!--<div class="boss1-track2"></div>-->
+    </div>
+    <div id="item">
+        <!--<div class="shotgun"></div>-->
+        <!--<div class="lightgun"></div>-->
+        <!--<div class="eggItem"></div>-->
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,306 @@
+body {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #fff;
+}
+
+.mask {
+    background-color: rgba(200, 200, 200, .5);
+    position: absolute;
+    z-index: 20;
+    font: bold 14px/40px "微软雅黑";
+}
+
+.mask button {
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -190px;
+}
+
+.mask .delete {
+    margin-top: -130px;
+}
+
+.mask .hiScore {
+    line-height: 14px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+}
+
+.mask .attack-mode {
+    line-height: 14px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    margin-top: -80px;
+    margin-left: -60px;
+}
+
+.mask p {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    text-align: center;
+    display: none;
+}
+
+#main {
+    /*margin: 20px auto;*/
+    /*width: 1200px;*/
+    /*height: 600px;*/
+    background-image: url(../img/sky.png);
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+    overflow: hidden;
+}
+
+.score {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #000;
+}
+
+.bossHp {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #000;
+    display: none;
+}
+
+#bossHp {
+    width: 150px;
+    height: 20px;
+}
+
+.skill {
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 234, 255, .5);
+    display: none;
+}
+
+#skillCold {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    overflow: hidden;
+}
+
+#skillCold .skill {
+    display: block;
+    top: 10px;
+    background-color: rgb(0, 234, 255);
+}
+
+#coldTimer {
+    position: relative;
+    z-index: 2;
+}
+
+.bird {
+    width: 34px;
+    height: 24px;
+    background: url(../img/birds.png) -8px -11px no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 40px;
+}
+
+.life {
+    height: 24px;
+    width: 110px;
+    position: absolute;
+    left: 10px;
+    top: 30px;
+}
+
+.life .bird {
+    position: static;
+    display: inline-block;
+}
+
+.egg {
+    width: 10px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 5px 5px 5px 5px/9px 9px 6px 6px;
+    position: absolute;
+    left: -20px;
+    top: -5px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.egg1 {
+    left: -20px;
+    top: 15px;
+}
+
+#core {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    top: 50%;
+    margin-top: -5px;
+    background-color: rgba(255, 255, 255, .3);
+    border-radius: 50%;
+}
+
+.bullet {
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.light_bullet {
+    width: 15px;
+    height: 4px;
+    background-image: linear-gradient(
+            90deg,
+            rgba(0, 0, 255, 0) 0%,
+            rgba(0, 0, 255, 1) 50%,
+            rgba(0, 0, 255, 1) 100%
+    );
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 5px 2px;
+    border-bottom-right-radius: 5px 2px;
+    position: absolute;
+}
+
+div[id$="bullet"] > div {
+    border-radius: 50%;
+    position: absolute;
+}
+
+.enemy-bullet {
+    width: 6px;
+    height: 6px;
+    background-color: black;
+}
+
+.enemy1 {
+    width: 64px;
+    height: 44px;
+    position: absolute;
+    background-image: url(../img/enemy1.png);
+}
+
+.enemy2 {
+    width: 70px;
+    height: 45px;
+    position: absolute;
+    background-image: url(../img/enemy2.png);
+}
+
+.boom {
+    width: 70px;
+    height: 65px;
+    position: absolute;
+    background: url(../img/boom.png) center center no-repeat;
+    -webkit-background-size: 30%;
+    background-size: 30%;
+    transition: transform 0.3s;
+}
+
+.boss1 {
+    width: 114px;
+    height: 156px;
+    border-radius: 43px 44px 35px 66px/52px 73px 57px 91px;
+    background-image: url(../img/boss1.png);
+    position: absolute;
+    right: 100px;
+    top: 230px;
+}
+
+.rotate {
+    animation: rotate 1s;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.boss1-bullet {
+    width: 6px;
+    height: 6px;
+    background-color: black;
+}
+
+.boss1-track1 {
+    width: 20px;
+    height: 20px;
+    background-color: #ff10cd;
+}
+
+.boss1-track2 {
+    width: 10px;
+    height: 10px;
+    background-color: #0306ff;
+}
+
+#item > div {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    position: absolute;
+}
+
+.shotgun {
+    background-color: #feff47;
+    color: red;
+}
+
+.shotgun::before {
+    content: "S";
+}
+
+.lightgun {
+    background-color: #feff47;
+    color: #0000ff;
+}
+
+.lightgun::before {
+    content: "L";
+}
+
+.eggItem {
+    background-color: #feff47;
+    color: #fff;
+}
+
+.eggItem::before {
+    content: "E";
+}
